@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINEWAVE Development - Server Statistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo-container">
+          <h1 class="logo">SINEWAVE</h1>
+          <span class="logo-sub">DEVELOPMENT</span>
+        </div>
+      </header>
+      <div class="status-bar pulse">
+        <div class="status-item">
+          <div class="status-label">Total Members</div>
+          <div class="status-value" id="totalMembers">--</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">Online Members</div>
+          <div class="status-value" id="onlineMembers">--</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">Recent Messages</div>
+          <div class="status-value" id="recentMessages">--</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">Last Updated</div>
+          <div class="status-value" id="lastUpdated">--</div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="timeRange">Time Range</label>
+          <select id="timeRange">
+            <option value="1">Last Hour</option>
+            <option value="6">Last 6 Hours</option>
+            <option value="24" selected>Last 24 Hours</option>
+            <option value="168">Last Week</option>
+            <option value="720">Last Month</option>
+            <option value="all">All Time</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="refreshBtn">Data Control</label>
+          <button id="refreshBtn" class="btn-primary">
+            <span class="btn-text">Refresh Data</span>
+            <span class="btn-loader"></span>
+          </button>
+        </div>
+        <div class="control-group">
+          <label for="autoRefresh">Auto Refresh</label>
+          <button id="autoRefresh" class="btn-secondary">Enable Auto</button>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="chart-container glow">
+          <h2 class="chart-title">Member Statistics</h2>
+          <div class="chart-wrapper">
+            <canvas id="memberChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-container glow">
+          <h2 class="chart-title">Message Activity</h2>
+          <div class="chart-wrapper">
+            <canvas id="messageChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="chart.js"></script>
+  </body>
+</html>
